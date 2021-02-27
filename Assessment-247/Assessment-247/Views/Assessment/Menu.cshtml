@@ -1,0 +1,59 @@
+﻿@model Assessment_247.Models.MenuItemModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Input a new Menu Item here!</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="addItem">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calories" class="control-label"></label>
+                <input asp-for="Calories" class="form-control" />
+                <span asp-validation-for="Calories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ingredient1" class="control-label"></label>
+                <input asp-for="Ingredient1" class="form-control" />
+                <span asp-validation-for="Ingredient1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ingredient2" class="control-label"></label>
+                <input asp-for="Ingredient2" class="form-control" />
+                <span asp-validation-for="Ingredient2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Item" class="btn btn-primary" />
+            </div>
+        </form>
+        <p>
+            @if(Model != null)
+             @Model.Name
+        </p>
+        <p>
+            @if (Model != null)
+                @Model.Calories
+        </p>
+        <p>
+            @if (Model != null)
+                @Model.Ingredient1
+        </p>
+        <p>
+            @if (Model != null)
+                @Model.Ingredient2
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
